@@ -2,4 +2,187 @@
    Bootstrap classes handle layout/spacing/grid.
    This file is only for things Bootstrap doesn't give us:
    brand colors, fonts, and small visual tweaks. */
+/* ==========================================================================
+   AllyCats Hair Studio - Custom Red Theme Stylesheet
+   ========================================================================== */
 
+/* --- Core Theme Variables --- */
+:root {
+  --primary-red: #9e0a1b;       /* Crimson base for primary buttons/headers */
+  --dark-red: #5c040d;          /* Deep dark red for gradients & dark zones */
+  --accent-red: #ff3344;        /* Vibrant red for hover states & links */
+  --light-bg: #fff5f5;          /* Very soft warm-white background tint */
+  --dark-bg: #140103;           /* Near-black with a hint of midnight red */
+  --card-border: #f5d6d9;       /* Light pinkish-red border for clean separation */
+}
+
+/* --- General Overrides --- */
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background-color: #ffffff;
+  color: #212529;
+}
+
+/* Custom Text and Utility overrides */
+.text-primary, .text-decoration-none {
+  color: var(--primary-red) !important;
+}
+.text-decoration-none:hover {
+  color: var(--accent-red) !important;
+}
+
+/* --- 1. Navbar Redesign --- */
+.navbar.bg-dark {
+  background: linear-gradient(135deg, var(--dark-bg) 0%, var(--dark-red) 100%) !important;
+  border-bottom: 2px solid var(--primary-red);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-brand {
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #ffffff !important;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.navbar-nav .nav-link {
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.75) !important;
+  transition: color 0.25s ease-in-out;
+  padding: 0.5rem 1rem !important;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: #ffffff !important;
+  background-color: var(--primary-red);
+  border-radius: 4px;
+}
+
+/* --- 2. Hero / Header Section --- */
+header.bg-dark {
+  background: linear-gradient(rgba(20, 1, 3, 0.85), rgba(92, 4, 13, 0.85)), 
+              url('https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=1920') no-repeat center center/cover !important;
+  padding: 7rem 0 !important;
+}
+
+/* Buttons styling */
+.btn-primary {
+  background-color: var(--primary-red) !important;
+  border-color: var(--primary-red) !important;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.btn-primary:hover {
+  background-color: var(--accent-red) !important;
+  border-color: var(--accent-red) !important;
+  transform: translateY(-2px);
+}
+.btn-outline-light:hover {
+  background-color: #ffffff;
+  color: var(--dark-red) !important;
+}
+
+/* --- 3. Core Services Section --- */
+#services {
+  background-color: #ffffff;
+}
+
+.feature.bg-primary {
+  background: linear-gradient(135deg, var(--primary-red), var(--dark-red)) !important;
+  width: 3.5rem;
+  height: 3.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 10px rgba(158, 10, 27, 0.3);
+}
+
+/* --- 4. Showcase & Alternate Services Section --- */
+.bg-light {
+  background-color: var(--light-bg) !important;
+}
+
+/* Styling the Hairstyle Cards & More Ways We Care */
+.card {
+  border: 1px solid var(--card-border);
+  box-shadow: 0 5px 15px rgba(92, 4, 13, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(92, 4, 13, 0.1);
+  border-color: var(--primary-red);
+}
+
+.card .bi {
+  color: var(--primary-red) !important;
+}
+
+/* --- 5. Contact Section & Inputs --- */
+#contact {
+  background-color: var(--light-bg) !important;
+}
+
+.form-control:focus {
+  border-color: var(--primary-red);
+  box-shadow: 0 0 0 0.25rem rgba(158, 10, 27, 0.25);
+}
+
+/* --- 6. Footer --- */
+footer.bg-dark {
+  background-color: var(--dark-bg) !important;
+  border-top: 3px solid var(--dark-red);
+}
+
+  /* --- Hairstyle Gallery Layout Styles --- */
+  .style-gallery .card {
+    border: none;
+    overflow: hidden; /* Keeps the zoomed image inside the card border */
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(92, 4, 13, 0.08);
+    position: relative;
+  }
+
+  .style-gallery .gallery-img-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 125%; /* Forces a perfect 4:5 portrait ratio so cards look uniform */
+    background-color: #fff5f5; 
+  }
+
+  .style-gallery img.card-img-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Stops the image from stretching out of shape */
+    transition: transform 0.5s ease-in-out; /* Controls the speed of the hover zoom */
+  }
+
+  /* --- The Hover Zoom Effect --- */
+  .style-gallery .card:hover img.card-img-top {
+    transform: scale(1.1); /* Zooms in 10% on hover */
+  }
+
+  /* --- Text Dark Overlay on Hover --- */
+  .style-gallery .gallery-text-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(20,1,3,0.95)); /* Elegant dark-red fade */
+    padding: 20px;
+    color: white;
+    opacity: 0; /* Hidden completely by default */
+    transition: opacity 0.3s ease;
+    z-index: 2;
+  }
+
+  .style-gallery .card:hover .gallery-text-overlay {
+    opacity: 1; /* Smoothly fades the text in when you hover over the card */
+  }
